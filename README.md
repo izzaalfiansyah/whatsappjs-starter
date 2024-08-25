@@ -18,7 +18,7 @@ To use this package, follow these steps:
 1. Clone the repository using the command below in the terminal.
 
    ```bash
-   https://github.com/izzaalfiansyah/whatsappbot-starter.git
+   https://github.com/izzaalfiansyah/whatsappjs-starter.git
    ```
 
 2. Open the terminal and run the following command:
@@ -38,4 +38,3 @@ To use this package, follow these steps:
 Thanks to the following people who have contributed to this project:
 
 - [@izzaalfiansyah](https://github.com/izzaalfiansyah) 📖
-- [@muhamdaily](https://github.com/muhamdaily) 📖
