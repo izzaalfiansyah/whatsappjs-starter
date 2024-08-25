@@ -1,1 +1,1 @@
-console.log("Test");
+import "./app/config";
