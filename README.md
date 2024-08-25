@@ -1,6 +1,6 @@
 <div align="center">
 
-# DiscordJS Kit
+# Whatsapp Web JS Kit
 
 This package is developed to make whatsapp-web.js bot easier to use. Use this package if you are trying to build a Whatsapp bot with the latest version.
 
