@@ -1,1 +1,1 @@
-import "./app/config";
+import "./app/bot";

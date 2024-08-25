@@ -6,7 +6,7 @@ import onQR from "../events/qr";
 import onReady from "../events/ready";
 import onDisconnected from "../events/disconnected";
 
-const bot = new Client({
+const client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
     headless: true,
@@ -14,25 +14,25 @@ const bot = new Client({
   },
 });
 
-bot.on("ready", onReady);
+client.on("ready", onReady);
 
-bot.on("qr", onQR);
+client.on("qr", onQR);
 
-bot.on("disconnected", () => {
+client.on("disconnected", () => {
   onDisconnected();
-  bot.destroy();
-  bot.initialize();
+  client.destroy();
+  client.initialize();
 });
 
 const commandsFolder = path.resolve("./src/commands");
 const commands = fs.readdirSync(commandsFolder);
 
-bot.on("message", (message) => {
+client.on("message", (message) => {
   for (const command of commands) {
-    require(commandsFolder + "/" + command).default.listener(message);
+    require(commandsFolder + "/" + command).default(message);
   }
 });
 
-bot.initialize();
+client.initialize();
 
-export default bot;
+export default client;
