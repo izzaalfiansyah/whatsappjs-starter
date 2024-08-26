@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get QR</title>
+  </head>
+  <body>
+    <div
+      id="content"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 10px;
+      "
+    >
+      Menunggu...
+    </div>
+    <script
+      src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io();
+      const contentEl = document.getElementById("content");
+
+      socket.on("qr", (res) => {
+        if (res) {
+          contentEl.innerHTML = `<img src="${res}" alt="QRcode" style="width: 400px; max-width: 100%;">`;
+        } else {
+          contentEl.innerHTML = "Menunggu...";
+        }
+      });
+
+      socket.on("ready", () => {
+        contentEl.innerHTML = "Perangkat terhubung!";
+      });
+    </script>
+  </body>
+</html>

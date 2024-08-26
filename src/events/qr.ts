@@ -1,6 +1,5 @@
 import qrcode from "qrcode";
-import { app } from "..";
-// import { io } from "..";
+import { io } from "..";
 
 export default function onQR(qr: string) {
   qrcode.toString(qr, { type: "terminal", small: true }, (err, res) => {
@@ -8,8 +7,7 @@ export default function onQR(qr: string) {
   });
 
   qrcode.toDataURL(qr, (err, url) => {
-    app.get("/qrcode", (req, res) => {
-      return res.send(url);
-    });
+    io.emit("qr", url);
+    console.log("qrcode emited");
   });
 }
